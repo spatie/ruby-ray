@@ -1,9 +1,10 @@
+require_relative "../origin/origin_factory"
+
 module Ray
   module Payloads
     class Payload
 
-      def initialize(*args)
-      end
+      def initialize(*args) end
 
       def type
         raise NotImplementedError, 'You must define the `type` method in your Payload'
@@ -13,6 +14,17 @@ module Ray
         {}
       end
 
+      def to_hash
+        {
+          type: self.type,
+          content: self.content,
+          origin: self.get_origin
+        }
+      end
+
+      def get_origin
+        Origin::OriginFactory.new.get_origin
+      end
     end
   end
 end

@@ -11,15 +11,9 @@ module Ray
     end
 
     def payload_contents
+
       return @payloads.map do |payload|
-        {
-          type: payload.type,
-          content: payload.content,
-          origin: {
-            file: "the file",
-            line_number: "123",
-          },
-        }
+        payload.to_hash
       end
     end
   end
