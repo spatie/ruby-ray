@@ -13,7 +13,10 @@ require_relative "ray/payloads/int_payload"
 require_relative "ray/payloads/null_payload"
 require_relative "ray/payloads/string_payload"
 require_relative "ray/payloads/new_screen_payload"
-
+require_relative "ray/payloads/hide_payload"
+require_relative "ray/payloads/hide_app_payload"
+require_relative "ray/payloads/remove_payload"
+require_relative "ray/payloads/show_app_payload"
 
 module Ray
   mattr_accessor :settings
@@ -53,14 +56,38 @@ module Ray
       color 'gray'
     end
 
-    def newScreen(name = '')
+    def new_screen(name = '')
       payload = Payloads::NewScreenPayload.new(name)
 
       send_request [payload]
     end
 
-    def clearScreen
-      self.newScreen
+    def clear_screen
+      self.new_screen
+    end
+
+    def hide
+      payload = Payloads::HidePayload.new
+
+      send_request [payload]
+    end
+
+    def remove
+      payload = Payloads::RemovePayload.new
+
+      send_request [payload]
+    end
+
+    def hide_app
+      payload = Payloads::HideAppPayload.new
+
+      send_request [payload]
+    end
+
+    def show_app
+      payload = Payloads::ShowAppPayload.new
+
+      send_request [payload]
     end
 
     def color(color)
@@ -69,7 +96,7 @@ module Ray
       send_request [payload]
     end
 
-    def send(args)
+    def send(*args)
       send_request PayloadFactory.create_for_values(args)
     end
 
@@ -82,5 +109,5 @@ module Ray
 end
 
 def ray(*args)
-  Ray::Ray.new(Ray.settings).send(args)
+  Ray::Ray.new(Ray.settings).send(*args)
 end

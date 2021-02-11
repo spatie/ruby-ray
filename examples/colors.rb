@@ -1,6 +1,6 @@
 require_relative "../lib/ray"
 
-ray().newScreen('Colors')
+ray().new_screen('Colors')
 
 ray('this is green').green
 ray('this is orange').orange

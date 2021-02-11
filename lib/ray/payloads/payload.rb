@@ -2,7 +2,7 @@ module Ray
   module Payloads
     class Payload
 
-      def initialize(value)
+      def initialize(*args)
       end
 
       def type
@@ -10,7 +10,7 @@ module Ray
       end
 
       def content
-        raise NotImplementedError, "You must define the `content` method in your Payload"
+        {}
       end
 
     end
