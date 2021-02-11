@@ -8,7 +8,7 @@ module Ray
       end
 
       def type
-        "custom"
+        'custom'
       end
 
       def content

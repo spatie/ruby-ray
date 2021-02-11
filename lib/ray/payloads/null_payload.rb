@@ -3,13 +3,13 @@ module Ray
     class NullPayload < Payload
 
       def type
-        "custom"
+        'custom'
       end
 
       def content
         {
           content: nil,
-          label: "Integer"
+          label: 'Integer'
         }
       end
 

@@ -3,17 +3,17 @@ module Ray
     class BoolPayload < Payload
 
       def initialize(bool)
-        @bool = bool
+        @name = bool
       end
 
       def type
-        "custom"
+        'custom'
       end
 
       def content
         {
-          content: @bool,
-          label: "Boolean"
+          content: @name,
+          label: 'Boolean'
         }
       end
 

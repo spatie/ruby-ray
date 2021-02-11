@@ -7,13 +7,13 @@ module Ray
       end
 
       def type
-        "custom"
+        'custom'
       end
 
       def content
         {
           content: @int,
-          label: "Integer"
+          label: 'Integer'
         }
       end
 

@@ -6,7 +6,7 @@ module Ray
       end
 
       def type
-        raise NotImplementedError, "You must define the `type` method in your Payload"
+        raise NotImplementedError, 'You must define the `type` method in your Payload'
       end
 
       def content

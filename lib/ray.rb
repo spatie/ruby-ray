@@ -20,6 +20,7 @@ require_relative "ray/payloads/remove_payload"
 require_relative "ray/payloads/show_app_payload"
 require_relative "ray/payloads/custom_payload"
 require_relative "ray/payloads/notify_payload"
+require_relative "ray/payloads/create_lock_payload"
 
 module Ray
   class Ray
@@ -96,6 +97,23 @@ module Ray
       payload = Payloads::ColorPayload.new(color)
 
       send_request payload
+    end
+
+    def pause
+      lockName = rand(10 ** 12).to_s
+
+      payload = Payloads::CreateLockPayload.new(lockName)
+
+      send_request payload
+
+      loop do
+        sleep(1)
+        if (!@client.lock_exists lockName)
+          break
+        end
+      end
+
+      return self
     end
 
     def send_custom(content, label = '')

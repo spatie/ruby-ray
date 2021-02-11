@@ -1,18 +1,18 @@
 module Ray
   module Payloads
-    class ColorPayload < Payload
+    class CreateLockPayload < Payload
 
-      def initialize(color)
-        @color = color
+      def initialize(name)
+        @name = name
       end
 
       def type
-        'color'
+        'create_lock'
       end
 
       def content
         {
-          color: @color,
+          name: @name,
         }
       end
 

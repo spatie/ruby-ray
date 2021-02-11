@@ -6,7 +6,7 @@ module Ray
       end
 
       def type
-        "notify"
+        'notify'
       end
 
       def content

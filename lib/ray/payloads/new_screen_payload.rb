@@ -7,7 +7,7 @@ module Ray
       end
 
       def type
-        "new_screen"
+        'new_screen'
       end
 
       def content

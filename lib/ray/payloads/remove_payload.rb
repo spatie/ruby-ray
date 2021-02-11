@@ -2,7 +2,7 @@ module Ray
   module Payloads
     class RemovePayload < Payload
       def type
-        "remove"
+        'remove'
       end
     end
   end
