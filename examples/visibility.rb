@@ -1,6 +1,6 @@
 require_relative "../lib/ray"
 
-ray().new_screen('Visibility')
+ray.new_screen('Visibility')
 
 ray('collapsed by default').hide
 
@@ -15,7 +15,7 @@ ray.remove
 sleep(1)
 ray('hiding the app window for two seconds...')
 sleep(1)
-ray().hide_app
+ray.hide_app
 sleep(2)
-ray().show_app
+ray.show_app
 ray('Hi again!')

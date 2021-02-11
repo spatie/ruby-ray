@@ -1,6 +1,6 @@
 require_relative "../lib/ray"
 
-ray().new_screen('General')
+ray.new_screen('General')
 
 ray(nil)
 ray(1234)

@@ -1,5 +1,5 @@
 require_relative "../lib/ray"
 
-ray().new_screen('Notify')
+ray.new_screen('Notify')
 
-ray().notify('This is a notification')
+ray.notify('This is a notification')
