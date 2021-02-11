@@ -18,6 +18,8 @@ require_relative "ray/payloads/hide_app_payload"
 require_relative "ray/payloads/remove_payload"
 require_relative "ray/payloads/show_app_payload"
 require_relative "ray/payloads/custom_payload"
+require_relative "ray/payloads/notify_payload"
+
 
 module Ray
   mattr_accessor :settings
@@ -65,6 +67,12 @@ module Ray
 
     def clear_screen
       self.new_screen
+    end
+
+    def notify(text)
+      payload = Payloads::NotifyPayload.new(text)
+
+      send_request payload
     end
 
     def hide
