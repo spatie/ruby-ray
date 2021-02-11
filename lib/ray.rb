@@ -17,6 +17,7 @@ require_relative "ray/payloads/hide_payload"
 require_relative "ray/payloads/hide_app_payload"
 require_relative "ray/payloads/remove_payload"
 require_relative "ray/payloads/show_app_payload"
+require_relative "ray/payloads/custom_payload"
 
 module Ray
   mattr_accessor :settings
@@ -92,6 +93,12 @@ module Ray
 
     def color(color)
       payload = Payloads::ColorPayload.new(color)
+
+      send_request [payload]
+    end
+
+    def send_custom(content, label = '')
+      payload = Payloads::CustomPayload.new(content, label)
 
       send_request [payload]
     end
