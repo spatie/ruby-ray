@@ -5,6 +5,7 @@ require "active_support/all"
 
 require_relative "ray/version"
 require_relative "ray/request"
+require_relative "ray/client"
 require_relative "ray/payload_factory"
 require_relative "ray/payloads/payload"
 require_relative "ray/payloads/bool_payload"
@@ -20,19 +21,11 @@ require_relative "ray/payloads/show_app_payload"
 require_relative "ray/payloads/custom_payload"
 require_relative "ray/payloads/notify_payload"
 
-
 module Ray
-  mattr_accessor :settings
-  @@settings = { host: "http://localhost", port: 23517 }
-
   class Ray
-    attr_reader :settings
-
-    class Error < StandardError; end
-
-    def initialize(settings)
-      @settings = settings
+    def initialize(settings, client = nil)
       @uuid = SecureRandom.uuid
+      @client = client || Client.new(settings[:port], settings[:host])
     end
 
     def green
@@ -118,7 +111,13 @@ module Ray
     def send_request(payloads)
       payloads = Array(payloads)
 
-      Request.new(@uuid, payloads, settings).send
+      meta = {
+        ruby_ray_version: 'ray version here'
+      }
+
+      request = Request.new(@uuid, payloads, meta)
+
+      @client.send(request)
 
       return self
     end
@@ -126,5 +125,7 @@ module Ray
 end
 
 def ray(*args)
-  Ray::Ray.new(Ray.settings).send(*args)
+  settings = { host: 'http://localhost', port: 23517 }
+
+  Ray::Ray.new(settings).send(*args)
 end

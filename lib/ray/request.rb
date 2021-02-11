@@ -2,28 +2,18 @@ module Ray
   class Request
     attr_reader :payloads, :settings
 
-    def initialize(uuid, payloads, settings)
+    def initialize(uuid, payloads, meta = {})
       @uuid = uuid;
       @payloads = payloads
-      @settings = settings
+      @meta = meta
     end
 
-    def send
-      req = Net::HTTP::Post.new(uri, {'Content-Type' => 'application/json'})
-      req.body = { uuid: @uuid, payloads: payloads_content, meta: {} }.to_json
-      res = Net::HTTP.start(uri.hostname, uri.port) do |http|
-        http.request(req)
-      end
-    #rescue StandardError
-      # Ignore any errors
+    def to_json
+      {uuid:@uuid, payloads:payload_contents, meta: @meta}.to_json
     end
 
-    def uri
-      @uri ||= URI("#{settings[:host]}:#{settings[:port]}")
-    end
-
-    def payloads_content
-      payloads.map do |payload|
+    def payload_contents
+      return @payloads.map do |payload|
         {
           type: payload.type,
           content: payload.content,
@@ -32,6 +22,7 @@ module Ray
             line_number: "123"
           },
         }
+
       end
     end
   end
