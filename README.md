@@ -16,7 +16,7 @@ Please see [CONTRIBUTING](.github/CONTRIBUTING.md) for details.
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/ray. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/ray/blob/master/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/spatie/ray. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/spatie/ray/blob/master/CODE_OF_CONDUCT.md).
 
 ## Contributing
 
