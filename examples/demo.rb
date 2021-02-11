@@ -1,3 +1,3 @@
 require_relative "../lib/ray"
 
-ray('demo');
+ray('demo')
