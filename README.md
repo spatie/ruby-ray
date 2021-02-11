@@ -1,7 +1,8 @@
 # Debug with Ray to fix problems faster
 
-https://img.shields.io/gem/v/ruby-ray
-![Ruby](https://github.com/spatie/ruby-ray/workflows/Tests/badge.svg)
+![Gem](https://img.shields.io/gem/v/ruby-ray)
+![Tests](https://github.com/spatie/ruby-ray/workflows/Tests/badge.svg)
+![Downloads](https://img.shields.io/gem/dt/ruby-ray)
 
 This gem can be installed in any Ruby application to send messages to [the Ray app](https://myray.app).
 
