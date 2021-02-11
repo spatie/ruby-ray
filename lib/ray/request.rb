@@ -1,7 +1,7 @@
 module Ray
   class Request
     def initialize(uuid, payloads, meta = {})
-      @uuid = uuid;
+      @uuid = uuid
       @payloads = payloads
       @meta = meta
     end
@@ -17,7 +17,7 @@ module Ray
           content: payload.content,
           origin: {
             file: "the file",
-            line_number: "123"
+            line_number: "123",
           },
         }
       end
