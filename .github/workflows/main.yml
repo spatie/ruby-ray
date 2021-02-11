@@ -5,14 +5,17 @@ on: [push,pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        ruby: ['2.7', '3.0']
     steps:
     - uses: actions/checkout@v2
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: 3.0.0
-    - name: Run the default task
+        ruby-version: ${{ matrix.ruby }}
+        bundler: default
+        bundler-cache: true
+    - name: Run tests
       run: |
-        gem install bundler -v 2.2.8
-        bundle install
         bundle exec rake
