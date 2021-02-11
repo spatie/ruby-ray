@@ -26,9 +26,18 @@ require_relative "ray/payloads/json_string_payload"
 
 module Ray
   class Ray
-    def initialize(settings, client = nil)
+    mattr_accessor :port
+    @@port = 23517
+    mattr_accessor :host
+    @@host = 'http://localhost'
+
+    def initialize(client = nil)
       @uuid = SecureRandom.uuid
-      @client = client || Client.new(settings[:port], settings[:host])
+      @client = client || Client.new(port, host)
+    end
+
+    def self.setup
+      yield self
     end
 
     def green
@@ -177,7 +186,5 @@ module Ray
 end
 
 def ray(*args)
-  settings = { host: 'http://localhost', port: 23517 }
-
-  Ray::Ray.new(settings).send(*args)
+  Ray::Ray.new.send(*args)
 end

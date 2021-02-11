@@ -2,6 +2,17 @@
 
 This gem can be installed in any Ruby application to send messages to [the Ray app](https://myray.app).
 
+## Configuration
+
+You can configure Ray and override the defaults:
+
+```ruby
+Ray::Ray.setup do |config|
+  config.host = 'http://localhost'
+  config.port = 23517
+end
+```
+
 ## Documentation
 
 You can find the full documentation on [our documentation site](https://spatie.be/docs/ray).

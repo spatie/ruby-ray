@@ -16,4 +16,19 @@ class RayTest < Minitest::Test
     payload = Ray::Payloads::BoolPayload.new(true)
     assert_equal({ content: true, label: "Boolean" }, payload.content)
   end
+
+  def test_ray_settings
+    # default settings
+    assert_equal(23517, Ray::Ray.port)
+    assert_equal('http://localhost', Ray::Ray.host)
+
+    # override defaults
+    Ray::Ray.setup do |config|
+      config.port = 1234
+      config.host = 'http://example.com'
+    end
+
+    assert_equal(1234, Ray::Ray.port)
+    assert_equal('http://example.com', Ray::Ray.host)
+  end
 end
