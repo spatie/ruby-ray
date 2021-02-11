@@ -12,6 +12,8 @@ require_relative "ray/payloads/color_payload"
 require_relative "ray/payloads/int_payload"
 require_relative "ray/payloads/null_payload"
 require_relative "ray/payloads/string_payload"
+require_relative "ray/payloads/new_screen_payload"
+
 
 module Ray
   mattr_accessor :settings
@@ -49,6 +51,16 @@ module Ray
 
     def gray
       color 'gray'
+    end
+
+    def newScreen(name = '')
+      payload = Payloads::NewScreenPayload.new(name)
+
+      send_request [payload]
+    end
+
+    def clearScreen
+      self.newScreen
     end
 
     def color(color)
