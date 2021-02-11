@@ -7,13 +7,13 @@ module Ray
         location = self.get_location
 
         Origin.new(
-          location ? location[:path] : nil,
-          location ? location[:lineno] : nil,
+          location ? location.path : nil,
+          location ? location.lineno : nil,
         )
       end
 
       def get_location
-        {path: 'myPath', lineno: 123}
+        caller_locations.find { |location| ! location.path.include? "ruby-ray/lib" }
       end
     end
   end
