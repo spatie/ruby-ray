@@ -22,6 +22,7 @@ require_relative "ray/payloads/custom_payload"
 require_relative "ray/payloads/notify_payload"
 require_relative "ray/payloads/create_lock_payload"
 require_relative "ray/payloads/size_payload"
+require_relative "ray/payloads/json_string_payload"
 
 module Ray
   class Ray
@@ -116,6 +117,14 @@ module Ray
 
     def class_name(anything)
       send_custom(anything.class.to_s, 'Class name')
+    end
+
+    def to_json(*args)
+      payloads = args.map do |arg|
+        Payloads::JsonStringPayload.new(arg)
+      end
+
+      send_request payloads
     end
 
     def pause
