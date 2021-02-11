@@ -111,7 +111,11 @@ module Ray
     def size(size)
       payload = Payloads::SizePayload.new(size)
 
-      send_request payload
+      send_custom payload
+    end
+
+    def class_name(anything)
+      send_custom(anything.class.to_s, 'Class name')
     end
 
     def pause
