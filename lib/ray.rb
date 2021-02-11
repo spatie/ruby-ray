@@ -21,6 +21,7 @@ require_relative "ray/payloads/show_app_payload"
 require_relative "ray/payloads/custom_payload"
 require_relative "ray/payloads/notify_payload"
 require_relative "ray/payloads/create_lock_payload"
+require_relative "ray/payloads/size_payload"
 
 module Ray
   class Ray
@@ -51,6 +52,14 @@ module Ray
 
     def gray
       color 'gray'
+    end
+
+    def small
+      size 'sm'
+    end
+
+    def large
+      size 'lg'
     end
 
     def new_screen(name = '')
@@ -95,6 +104,12 @@ module Ray
 
     def color(color)
       payload = Payloads::ColorPayload.new(color)
+
+      send_request payload
+    end
+
+    def size(size)
+      payload = Payloads::SizePayload.new(size)
 
       send_request payload
     end
