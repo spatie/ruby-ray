@@ -5,8 +5,8 @@ require_relative "lib/ray/version"
 Gem::Specification.new do |spec|
   spec.name          = "ruby-ray"
   spec.version       = Ray::VERSION
-  spec.authors       = ["Chris Oliver"]
-  spec.email         = ["excid3@gmail.com"]
+  spec.authors       = ["Freek Van der Herten", "Chris Oliver"]
+  spec.email         = ["freek@spatie.be"]
 
   spec.summary       = "Debug with Ray to fix problems faster"
   spec.homepage      = "https://myray.app"
