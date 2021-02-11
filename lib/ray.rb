@@ -60,7 +60,7 @@ module Ray
     def new_screen(name = '')
       payload = Payloads::NewScreenPayload.new(name)
 
-      send_request [payload]
+      send_request payload
     end
 
     def clear_screen
@@ -70,37 +70,37 @@ module Ray
     def hide
       payload = Payloads::HidePayload.new
 
-      send_request [payload]
+      send_request payload
     end
 
     def remove
       payload = Payloads::RemovePayload.new
 
-      send_request [payload]
+      send_request payload
     end
 
     def hide_app
       payload = Payloads::HideAppPayload.new
 
-      send_request [payload]
+      send_request payload
     end
 
     def show_app
       payload = Payloads::ShowAppPayload.new
 
-      send_request [payload]
+      send_request payload
     end
 
     def color(color)
       payload = Payloads::ColorPayload.new(color)
 
-      send_request [payload]
+      send_request payload
     end
 
     def send_custom(content, label = '')
       payload = Payloads::CustomPayload.new(content, label)
 
-      send_request [payload]
+      send_request payload
     end
 
     def send(*args)
@@ -108,6 +108,8 @@ module Ray
     end
 
     def send_request(payloads)
+      payloads = Array(payloads)
+
       Request.new(@uuid, payloads, settings).send
 
       return self
