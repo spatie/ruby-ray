@@ -2,14 +2,15 @@ module Ray
   class Request
     attr_reader :payloads, :settings
 
-    def initialize(payloads, settings)
+    def initialize(uuid, payloads, settings)
+      @uuid = uuid;
       @payloads = payloads
       @settings = settings
     end
 
     def send
       req = Net::HTTP::Post.new(uri, {'Content-Type' => 'application/json'})
-      req.body = { uuid: SecureRandom.uuid, payloads: payloads_content, meta: {} }.to_json
+      req.body = { uuid: @uuid, payloads: payloads_content, meta: {} }.to_json
       res = Net::HTTP.start(uri.hostname, uri.port) do |http|
         http.request(req)
       end
