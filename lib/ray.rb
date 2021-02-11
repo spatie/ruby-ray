@@ -127,6 +127,12 @@ module Ray
       send_request payloads
     end
 
+    def pass(argument)
+      send argument
+
+      return argument
+    end
+
     def pause
       lockName = rand(10 ** 12).to_s
 
