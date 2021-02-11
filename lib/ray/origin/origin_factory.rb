@@ -7,7 +7,7 @@ module Ray
         location = self.get_location
 
         Origin.new(
-          location ? location.path : nil,
+          location ? location.absolute_path: nil,
           location ? location.lineno : nil,
         )
       end
