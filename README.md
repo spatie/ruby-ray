@@ -1,5 +1,7 @@
 # Debug with Ray to fix problems faster
 
+![Ruby](https://github.com/spatie/ruby-ray/workflows/Ruby/badge.svg)
+
 This gem can be installed in any Ruby application to send messages to [the Ray app](https://myray.app).
 
 ## Documentation
