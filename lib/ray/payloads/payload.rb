@@ -18,7 +18,7 @@ module Ray
         {
           type: self.type,
           content: self.content,
-          origin: self.get_origin
+          origin: self.get_origin.to_hash
         }
       end
 

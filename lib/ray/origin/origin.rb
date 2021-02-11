@@ -7,10 +7,10 @@ module Ray
         @lineNumber = lineNumber
       end
 
-      def to_array
+      def to_hash
         {
           file: @file,
-          lineNumber: @lineNumber,
+          line_number: @lineNumber,
         }
       end
     end
