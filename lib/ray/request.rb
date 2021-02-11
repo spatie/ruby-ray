@@ -1,7 +1,5 @@
 module Ray
   class Request
-    attr_reader :payloads, :settings
-
     def initialize(uuid, payloads, meta = {})
       @uuid = uuid;
       @payloads = payloads
@@ -22,7 +20,6 @@ module Ray
             line_number: "123"
           },
         }
-
       end
     end
   end
