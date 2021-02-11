@@ -10,7 +10,7 @@ module Ray
       req.body = request.to_json
 
       begin
-        res = Net::HTTP.start(uri.hostname, uri.port) do |http|
+        Net::HTTP.start(uri.hostname, uri.port) do |http|
           http.request(req)
         end
       rescue StandardError
