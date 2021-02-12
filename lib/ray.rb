@@ -25,7 +25,7 @@ require_relative "ray/payloads/size_payload"
 require_relative "ray/payloads/json_string_payload"
 require_relative "ray/payloads/caller_payload"
 require_relative "ray/payloads/trace_payload"
-
+require_relative "ray/payloads/log_payload"
 require_relative "ray/origin/origin_factory"
 
 

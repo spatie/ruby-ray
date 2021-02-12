@@ -23,7 +23,7 @@ module Ray
       when String
         Payloads::StringPayload.new(arg)
       else
-        raise StandardError, "Unable to match payload type"
+        Payloads::JsonStringPayload.new([arg])
       end
     end
   end
