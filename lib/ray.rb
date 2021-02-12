@@ -23,6 +23,9 @@ require_relative "ray/payloads/notify_payload"
 require_relative "ray/payloads/create_lock_payload"
 require_relative "ray/payloads/size_payload"
 require_relative "ray/payloads/json_string_payload"
+require_relative "ray/payloads/caller_payload"
+require_relative "ray/origin/origin_factory"
+
 
 module Ray
   class Ray
@@ -117,6 +120,22 @@ module Ray
 
     def class_name(anything)
       send_custom(anything.class.to_s, 'Class name')
+    end
+
+    def caller
+      location = caller_locations[1]
+
+      if (! location)
+        payload = Payloads::CustomPayload.new('Called at top level', 'Caller')
+
+        send_request payload
+
+        return self
+      end
+
+      payload = Payloads::CallerPayload.new(location)
+
+      send_request payload
     end
 
     def to_json(*args)
