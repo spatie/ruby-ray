@@ -2,6 +2,10 @@
 
 All notable changes to `ruby-ray` will be documented in this file.
 
+## [0.4.0] - 2021-02-11
+
+- more payloads
+
 ## [0.3.0] - 2021-02-11
 
 - more payloads
