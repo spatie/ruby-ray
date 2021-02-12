@@ -36,7 +36,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 - [Freek Van der Herten](https://github.com/freekmurze)
 - [All Contributors](../../contributors)
 
-A big thank you to Chris Oliver for teaching us the basics of Ruby development. You can see the initial development of this package [in this video](https://freek.dev/1904-creating-a-ruby-gem-for-ray).
+A big thank you to Chris Oliver for developing the initial gem. You can watch the stream [in this video](https://freek.dev/1904-creating-a-ruby-gem-for-ray).
 
 ## License
 
