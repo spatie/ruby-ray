@@ -24,6 +24,8 @@ require_relative "ray/payloads/create_lock_payload"
 require_relative "ray/payloads/size_payload"
 require_relative "ray/payloads/json_string_payload"
 require_relative "ray/payloads/caller_payload"
+require_relative "ray/payloads/trace_payload"
+
 require_relative "ray/origin/origin_factory"
 
 
@@ -134,6 +136,12 @@ module Ray
       end
 
       payload = Payloads::CallerPayload.new(location)
+
+      send_request payload
+    end
+
+    def trace
+      payload = Payloads::TracePayload.new caller_locations
 
       send_request payload
     end
