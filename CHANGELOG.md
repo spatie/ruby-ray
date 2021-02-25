@@ -2,6 +2,9 @@
 
 All notable changes to `ruby-ray` will be documented in this file.
 
+## [0.4.1] - 2021-02-25
+
+
 - Fix require for bundler
 
 ## [0.4.0] - 2021-02-11
