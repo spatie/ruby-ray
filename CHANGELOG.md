@@ -2,6 +2,8 @@
 
 All notable changes to `ruby-ray` will be documented in this file.
 
+- Fix require for bundler
+
 ## [0.4.0] - 2021-02-11
 
 - more payloads
