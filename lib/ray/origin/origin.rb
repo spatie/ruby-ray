@@ -1,16 +1,15 @@
 module Ray
   module Origin
     class Origin
-
-      def initialize(file, lineNumber)
+      def initialize(file, line_number)
         @file = file
-        @lineNumber = lineNumber
+        @line_number = line_number
       end
 
       def to_hash
         {
           file: @file,
-          line_number: @lineNumber,
+          line_number: @line_number
         }
       end
     end

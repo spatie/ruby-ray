@@ -14,6 +14,6 @@ class RayTest < Minitest::Test
 
   def test_bool_payload_content
     payload = Ray::Payloads::BoolPayload.new(true)
-    assert_equal({ content: true, label: "Boolean" }, payload.content)
+    assert_equal({content: true, label: "Boolean"}, payload.content)
   end
 end

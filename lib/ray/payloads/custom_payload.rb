@@ -1,14 +1,13 @@
 module Ray
   module Payloads
     class CustomPayload < Payload
-
-      def initialize(content, label = '')
+      def initialize(content, label = "")
         @content = content
         @label = label
       end
 
       def type
-        'custom'
+        "custom"
       end
 
       def content

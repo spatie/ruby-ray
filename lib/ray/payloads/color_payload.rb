@@ -1,21 +1,19 @@
 module Ray
   module Payloads
     class ColorPayload < Payload
-
       def initialize(color)
         @color = color
       end
 
       def type
-        'color'
+        "color"
       end
 
       def content
         {
-          color: @color,
+          color: @color
         }
       end
-
     end
   end
 end

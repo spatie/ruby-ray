@@ -1,13 +1,12 @@
 module Ray
   module Payloads
     class TracePayload < Payload
-
       def initialize(locations)
         @locations = locations
       end
 
       def type
-        'trace'
+        "trace"
       end
 
       def content
@@ -15,13 +14,12 @@ module Ray
           {
             file_name: location.absolute_path,
             line_number: location.lineno,
-            vendor_frame: false,
+            vendor_frame: false
           }
         end
 
-        { frames: frames }
+        {frames: frames}
       end
-
     end
   end
 end

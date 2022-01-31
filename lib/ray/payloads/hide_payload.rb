@@ -2,7 +2,7 @@ module Ray
   module Payloads
     class HidePayload < Payload
       def type
-        'hide'
+        "hide"
       end
     end
   end

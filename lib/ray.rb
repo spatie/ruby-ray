@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'net/http'
+require "net/http"
 require "active_support/all"
 
 require_relative "ray/version"
@@ -28,7 +28,6 @@ require_relative "ray/payloads/trace_payload"
 require_relative "ray/payloads/log_payload"
 require_relative "ray/origin/origin_factory"
 
-
 module Ray
   class Ray
     def initialize(settings, client = nil)
@@ -37,45 +36,45 @@ module Ray
     end
 
     def green
-      color 'green'
+      color "green"
     end
 
     def orange
-      color 'orange'
+      color "orange"
     end
 
     def red
-      color 'red'
+      color "red"
     end
 
     def purple
-      color 'purple'
+      color "purple"
     end
 
     def blue
-      color 'blue'
+      color "blue"
     end
 
     def gray
-      color 'gray'
+      color "gray"
     end
 
     def small
-      size 'sm'
+      size "sm"
     end
 
     def large
-      size 'lg'
+      size "lg"
     end
 
-    def new_screen(name = '')
+    def new_screen(name = "")
       payload = Payloads::NewScreenPayload.new(name)
 
       send_request payload
     end
 
     def clear_screen
-      self.new_screen
+      new_screen
     end
 
     def notify(text)
@@ -121,14 +120,14 @@ module Ray
     end
 
     def class_name(anything)
-      send_custom(anything.class.to_s, 'Class name')
+      send_custom(anything.class.to_s, "Class name")
     end
 
     def caller
-      location = caller_locations[1]
+      location = caller_locations(2..2).first
 
-      if (! location)
-        payload = Payloads::CustomPayload.new('Called at top level', 'Caller')
+      if !location
+        payload = Payloads::CustomPayload.new("Called at top level", "Caller")
 
         send_request payload
 
@@ -157,27 +156,27 @@ module Ray
     def pass(argument)
       send argument
 
-      return argument
+      argument
     end
 
     def pause
-      lockName = rand(10 ** 12).to_s
+      lock_name = rand(10**12).to_s
 
-      payload = Payloads::CreateLockPayload.new(lockName)
+      payload = Payloads::CreateLockPayload.new(lock_name)
 
       send_request payload
 
       loop do
         sleep(1)
-        if (!@client.lock_exists lockName)
+        if !@client.lock_exists lock_name
           break
         end
       end
 
-      return self
+      self
     end
 
-    def send_custom(content, label = '')
+    def send_custom(content, label = "")
       payload = Payloads::CustomPayload.new(content, label)
 
       send_request payload
@@ -191,20 +190,20 @@ module Ray
       payloads = Array(payloads)
 
       meta = {
-        ruby_ray_version: 'ray version here'
+        ruby_ray_version: "ray version here"
       }
 
       request = Request.new(@uuid, payloads, meta)
 
       @client.send(request)
 
-      return self
+      self
     end
   end
 end
 
 def ray(*args)
-  settings = { host: 'http://localhost', port: 23517 }
+  settings = {host: "http://localhost", port: 23517}
 
   Ray::Ray.new(settings).send(*args)
 end

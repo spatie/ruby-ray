@@ -1,22 +1,19 @@
 module Ray
   module Payloads
     class SizePayload < Payload
-
       def initialize(size)
         @size = size
       end
 
       def type
-        'size'
+        "size"
       end
 
       def content
         {
-          size: @size,
+          size: @size
         }
       end
-
     end
   end
 end
-

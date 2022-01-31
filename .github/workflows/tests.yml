@@ -16,6 +16,8 @@ jobs:
         ruby-version: ${{ matrix.ruby }}
         bundler: default
         bundler-cache: true
+    - name: StandardRb check
+      run: bundle exec standardrb
     - name: Run tests
       run: |
         bundle exec rake

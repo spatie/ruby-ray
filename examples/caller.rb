@@ -2,7 +2,7 @@ require_relative "../lib/ray"
 
 class Test
   def calling_method
-    self.called_method
+    called_method
   end
 
   def called_method
@@ -10,8 +10,8 @@ class Test
   end
 end
 
-ray.new_screen('Caller')
+ray.new_screen("Caller")
 
 Test.new.calling_method
 ray.caller
-ray.to_json(['a' => 1, 'b' => 2, 'c' => [3,4]], {hey: 123})
+ray.to_json(["a" => 1, "b" => 2, "c" => [3, 4]], {hey: 123})

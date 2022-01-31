@@ -1,18 +1,16 @@
 module Ray
   module Payloads
     class NullPayload < Payload
-
       def type
-        'custom'
+        "custom"
       end
 
       def content
         {
           content: nil,
-          label: 'Integer'
+          label: "Integer"
         }
       end
-
     end
   end
 end

@@ -1,21 +1,19 @@
 module Ray
   module Payloads
     class NewScreenPayload < Payload
-
-      def initialize(screenName)
-        @screenName = screenName
+      def initialize(screen_name)
+        @screen_name = screen_name
       end
 
       def type
-        'new_screen'
+        "new_screen"
       end
 
       def content
         {
-          name: @screenName,
+          name: @screen_name
         }
       end
-
     end
   end
 end
