@@ -1,1 +1,1 @@
-require "ray"
+require_relative "../ray"
