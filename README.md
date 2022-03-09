@@ -1,3 +1,6 @@
+
+[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/support-ukraine.svg?t=1" />](https://supportukrainenow.org)
+
 # Debug with Ray to fix problems faster
 
 ![Gem](https://img.shields.io/gem/v/ruby-ray)
