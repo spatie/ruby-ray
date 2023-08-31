@@ -28,7 +28,7 @@ require_relative "ray/payloads/trace_payload"
 require_relative "ray/payloads/log_payload"
 require_relative "ray/origin/origin_factory"
 
-require "ray/configuration"
+require_relative "configuration"
 
 module Ray
   class Ray
@@ -213,7 +213,7 @@ module Ray
 end
 
 def ray(*args)
-  settings = {host: Ray.configuration.host | "http://localhost", port: Ray.configuration.port | 23517}
+  settings = {host: Ray::Ray.configuration.host || "http://localhost", port: Ray::Ray.configuration.port || 23517}
 
   Ray::Ray.new(settings).send(*args)
 end
