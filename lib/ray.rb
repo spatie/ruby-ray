@@ -28,11 +28,21 @@ require_relative "ray/payloads/trace_payload"
 require_relative "ray/payloads/log_payload"
 require_relative "ray/origin/origin_factory"
 
+require "ray/configuration"
+
 module Ray
   class Ray
     def initialize(settings, client = nil)
       @uuid = SecureRandom.uuid
       @client = client || Client.new(settings[:port], settings[:host])
+    end
+
+    def self.configuration
+      @configuration ||= Configuration.new
+    end
+    
+    def self.configure(&block)
+      yield(configuration)
     end
 
     def green
@@ -203,7 +213,7 @@ module Ray
 end
 
 def ray(*args)
-  settings = {host: "http://localhost", port: 23517}
+  settings = {host: Ray.configuration.host | "http://localhost", port: Ray.configuration.port | 23517}
 
   Ray::Ray.new(settings).send(*args)
 end
