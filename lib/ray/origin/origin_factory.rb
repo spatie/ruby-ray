@@ -5,11 +5,7 @@ module Ray
     class OriginFactory
       def get_origin
         location = get_location
-
-        Origin.new(
-          location ? location.absolute_path : nil,
-          location ? location.lineno : nil
-        )
+        Origin.new(location&.absolute_path, location&.lineno)
       end
 
       def get_location
