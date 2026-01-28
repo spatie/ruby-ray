@@ -1,14 +1,27 @@
-# Debug with Ray to fix problems faster
+# spatie/ruby-ray - Send debug output from Ruby to Ray
 
 ![Gem](https://img.shields.io/gem/v/ruby-ray)
 ![Tests](https://github.com/spatie/ruby-ray/workflows/Tests/badge.svg)
 ![Downloads](https://img.shields.io/gem/dt/ruby-ray)
 
-This gem can be installed in any Ruby application to send messages to [the Ray app](https://myray.app).
+This gem can be installed in any Ruby application to send debug output to [Ray](https://myray.app), the desktop debugging app from [Spatie](https://spatie.be/). 
+
+_This package is under development. No stable release yet, but you can install and experiment with the 0.x versions._
+
+[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/wordpress-ray.jpg?t=1769610086" width="500px" />](https://spatie.be/github-ad-click/wordpress-ray)
+
+Ray is a desktop debugging app that keeps the instant feedback you get from console.log() and dump() but lets you use the same debugging syntax across Laravel, PHP, JavaScript and more frameworks and languages.
+
+- Send anything you want to Ray, including HTML, arrays, queries, and Markdown files.
+- View and interact with output your AI sends to Ray using our MCP server. 
+- Measure performance and pause execution in PHP.
+- Beautifully designed themes to match your style.
+
+[Download our free trial](https://myray.app/) and send up to 20 messages each session. Enjoying Ray? [Buy a license](https://spatie.be/products/ray) to unlock the app and get full access.
 
 ## Documentation
 
-You can find the full documentation on [our documentation site](https://spatie.be/docs/ray).
+You can find the full documentation for using Ray with Ruby on [https://myray.app/docs/other-languages/ruby](https://myray.app/docs/other-languages/ruby/getting-started).
 
 ## Changelog
 
